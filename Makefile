@@ -19,8 +19,8 @@ CXXOBJS = mcnp2cad.o MCNPInput.o volumes.o geometry.o ProgOptions.o
 # Remove HAVE_IGEOM_CONE from the next line if using old iGeom implementation
 CXXFLAGS = -g -std=c++11 -Wall -Wextra -DUSING_CGMA -DHAVE_IGEOM_CONE -I${ARMADILLO_BASE_DIR}/include
 
-
-LDFLAGS = ${IGEOM_LIBS} 
+LDFLAGS = -ldl 
+LDFLAGS += ${IGEOM_LIBS} 
 LDFLAGS += -L${ARMADILLO_BASE_DIR}/lib -larmadillo
 
 mcnp2cad: ${CXXOBJS} Makefile
